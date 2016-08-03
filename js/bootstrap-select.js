@@ -744,24 +744,18 @@
         title = typeof this.options.title !== 'undefined' ? this.options.title : this.options.noneSelectedText;
       }
 
-      /**
-       * Start Access Confidential Edits
-       */
-      // Show "title: values" if label-with-values is true - AN
+      // Show "title: values" if label-with-values is true
       if(this.$element.data('label-with-values') && title !== this.$element.attr('title')) {
-        title = '<strong class="u-color-secondary">' + this.$element.attr('title') + ':</strong> ' + title;
+        var labelClass = this.$element.data('label-class') ? this.$element.data('label-class') : '';
+        title = '<strong class="' + labelClass + '">' + this.$element.attr('title') + ':</strong> ' + title;
       }
 
-      // Hide button tooltip conditional - AN
+      // Show button tooltip conditional 
       if(!this.$element.data('hide-tooltip')){
         //strip all html-tags and trim the result
         this.$button.attr('title', $.trim(title.replace(/<[^>]*>?/g, '')));
       }
-      /**
-       * End Access Confidential Edits
-       */
-      //strip all html-tags and trim the result
-      //this.$button.attr('title', $.trim(title.replace(/<[^>]*>?/g, '')));
+
       this.$button.children('.filter-option').html(title);
 
       this.$element.trigger('rendered.bs.select');
