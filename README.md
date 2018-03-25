@@ -91,3 +91,24 @@ Licensed under [the MIT license](LICENSE).
 * [Solve for All](https://solveforall.com)
 
 Does your organization use bootstrap-select? Open an issue, and include a link and logo, and you'll be added to the list.
+
+## This Fork contains the following features
+
+I have made some backward compatible modifications to bootstrap-select for a project I am working on and wanted to know if there would be any interest in adding them to the project before sending a pull request.
+
+**My code does the following:**
+- allows disabling of the browser tooltip on the bootstrap-select button while still using `title` attribute for select label
+- allows display of label along with the selected data. Label changes to `strong`, or can optionally pass a class name for alternate styling, while displaying selected items after label.
+
+In order to keep things backwards compatible I added some additional data attribute options (e.g. `data-label-with-values="true"`):
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| labelWithValues | boolean | `false` | When set to `true`, the title field is placed statically in the dropdown. Once an item is selected from dropdown, it is appended to the title (see below demo). |
+| labelClass | string |  | Requires `labelWithValues` attribute. optional class to style label when item(s) are selected. Label is wrapped in a `strong` tag when items are selected. |
+| hideTooltip | boolean | `false` | When set to `true`, the `title` is not set on the generated button, preventing the browser's tooltip from generating |
+
+**This image better describes the functionality:**
+![demo](http://i.imgur.com/VEYRr10.png)
+
+These attributes are completely optional and do not negatively impact current functionality.
